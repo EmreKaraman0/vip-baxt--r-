@@ -10,9 +10,27 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <link rel="stylesheet" href="styles.css?v=7" />
+  <link rel="stylesheet" href="styles.css?v=9" />
 </head>
 <body>
+
+  <!-- 1. KRALİYET AÇILIŞ SAHNESİ (VIP INTRO) -->
+  <div id="vipIntroSplash" class="vip-intro-splash">
+    <div class="intro-crest-ring">
+      <img src="assets/logo.png?v=7" alt="VIP Boxer Store" />
+    </div>
+    <div class="intro-title">VIP BOXER STORE</div>
+    <div style="font-size:0.76rem; letter-spacing:0.28em; color:var(--text-muted); text-transform:uppercase;">
+      Luxury Collection Hazırlanıyor
+    </div>
+    <div class="intro-bar-track">
+      <div class="intro-bar-fill"></div>
+    </div>
+  </div>
+
+  <!-- 2. SÜZÜLEN ALTIN TOZU & SPOT IŞIĞI KATMANI -->
+  <canvas id="goldDustCanvas"></canvas>
+  <div id="cursorSpotlight" class="cursor-spotlight"></div>
 
   <!-- ÜST KAYAN VIP DUYURU BANDI -->
   <div class="vip-marquee">
@@ -171,6 +189,84 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM TARZI ALTIN HALKALI VIP STORY VİTRİNİ -->
+  <section class="vip-stories-section reveal-item">
+    <div class="stories-bar">
+      <div class="stories-intro-badge">
+        <span>✨ YAKINDAN GÖR</span>
+        <strong>VIP Hikâyeler</strong>
+      </div>
+
+      <button type="button" class="story-item" onclick="openStoryViewer(0)">
+        <div class="story-ring">
+          <div class="story-ring-inner">
+            <img src="assets/products/ck_baxtir_seti.jpg?v=7" alt="CK Boxer" />
+          </div>
+          <span class="story-live-pill">🔥 POPÜLER</span>
+        </div>
+        <span class="story-label">CK 3'lü Boxer</span>
+      </button>
+
+      <button type="button" class="story-item" onclick="openStoryViewer(1)">
+        <div class="story-ring">
+          <div class="story-ring-inner">
+            <img src="assets/products/tommy_baxtir_seti.jpg?v=7" alt="Tommy Boxer" />
+          </div>
+          <span class="story-live-pill">👑 VIP</span>
+        </div>
+        <span class="story-label">Tommy 3'lü</span>
+      </button>
+
+      <button type="button" class="story-item" onclick="openStoryViewer(2)">
+        <div class="story-ring">
+          <div class="story-ring-inner">
+            <img src="assets/products/puma_baxtir_seti.jpg?v=7" alt="Puma Boxer" />
+          </div>
+          <span class="story-live-pill">⚡ SPOR</span>
+        </div>
+        <span class="story-label">Puma 3'lü</span>
+      </button>
+
+      <button type="button" class="story-item" onclick="openStoryViewer(3)">
+        <div class="story-ring">
+          <div class="story-ring-inner">
+            <img src="assets/products/lv_corap_seti.jpg?v=7" alt="LV 6'lı" />
+          </div>
+          <span class="story-live-pill">💎 LÜKS</span>
+        </div>
+        <span class="story-label">LV 6'lı Kutu</span>
+      </button>
+
+      <button type="button" class="story-item" onclick="openStoryViewer(4)">
+        <div class="story-ring">
+          <div class="story-ring-inner">
+            <img src="assets/products/gucci_corap_seti.jpg?v=7" alt="Gucci 6'lı" />
+          </div>
+          <span class="story-live-pill">✨ İKONİK</span>
+        </div>
+        <span class="story-label">Gucci 6'lı</span>
+      </button>
+
+      <button type="button" class="story-item" onclick="openStoryViewer(5)">
+        <div class="story-ring">
+          <div class="story-ring-inner">
+            <img src="assets/products/ck_corap_seti.jpg?v=7" alt="CK 6'lı" />
+          </div>
+        </div>
+        <span class="story-label">CK 6'lı Kutu</span>
+      </button>
+
+      <button type="button" class="story-item" onclick="openStoryViewer(6)">
+        <div class="story-ring">
+          <div class="story-ring-inner">
+            <img src="assets/products/uspolo_corap_seti.jpg?v=7" alt="Polo 6'lı" />
+          </div>
+        </div>
+        <span class="story-label">U.S. Polo 6'lı</span>
+      </button>
     </div>
   </section>
 
@@ -357,7 +453,7 @@
         6'lı Özel Kutulu Lüks Çorap (225 ₺) ve 3'lü Kutulu Boxer (275 ₺) Mağazası • S - M - L - XL - XXL Tüm Beden Seçenekleriyle Hizmetinizde.
       </p>
       <p style="margin-bottom:1.4rem;">
-        <a href="https://wa.me/905425753008?text=Merhaba%20VIP%20Boxer%20Store%2C%20sipari%C5%9F%20vermek%20istiyorum." target="_blank" style="color:#25d366; font-weight:800; text-decoration:none; font-size:1rem;">
+        <a href="whatsapp://send?phone=905425753008&text=Merhaba%20VIP%20Boxer%20Store%2C%20sipari%C5%9F%20vermek%20istiyorum." style="color:#25d366; font-weight:800; text-decoration:none; font-size:1rem;">
           📞 WhatsApp Sipariş Hattı: 0542 575 30 08
         </a>
       </p>
@@ -380,18 +476,17 @@
     <div class="modal-content" style="max-width:680px; padding:2.2rem;">
       <button class="modal-close" onclick="closeSizeGuide()">✕</button>
       <span class="section-eyebrow">📏 TAM KALIP REHBERİ</span>
-      <h3 style="font-family:'Cinzel',serif; font-size:1.6rem; margin-bottom:0.5rem;">VIP Boxer &amp; Çorap Beden Tablosu</h3>
+      <h3 style="font-family:'Cinzel',serif; font-size:1.6rem; margin-bottom:0.5rem;">VIP Boxer Beden Tablosu (S - XXL)</h3>
       <p style="color:var(--text-muted); font-size:0.9rem;">
-        Tüm ürünlerimiz yüksek esneklik sağlayan likralı birinci sınıf penye pamuktan üretilmiştir. Kendi bedeninizi güvenle seçebilirsiniz.
+        Boxer modellerimiz S - XXL tam kalıptır; 6'lı kutulu çorap setlerimiz ise her ayağa uyum sağlayan standart esnek kalıptır.
       </p>
 
       <table class="size-table">
         <thead>
           <tr>
-            <th>Beden</th>
+            <th>Boxer Bedeni</th>
             <th>Boxer Bel Ölçüsü</th>
-            <th>Kilo Aralığı</th>
-            <th>Çorap Uyum Aralığı</th>
+            <th>Önerilen Kilo Aralığı</th>
           </tr>
         </thead>
         <tbody>
@@ -399,31 +494,26 @@
             <td><strong>S</strong></td>
             <td>72 - 78 cm</td>
             <td>50 - 64 kg</td>
-            <td>36 - 38 Numara</td>
           </tr>
           <tr>
             <td><strong>M</strong></td>
             <td>79 - 86 cm</td>
             <td>65 - 76 kg</td>
-            <td>39 - 41 Numara</td>
           </tr>
           <tr>
             <td><strong>L</strong></td>
             <td>87 - 94 cm</td>
             <td>77 - 88 kg</td>
-            <td>41 - 43 Numara</td>
           </tr>
           <tr>
             <td><strong>XL</strong></td>
             <td>95 - 103 cm</td>
             <td>89 - 102 kg</td>
-            <td>43 - 45 Numara</td>
           </tr>
           <tr>
             <td><strong>XXL</strong></td>
             <td>104 - 116 cm</td>
             <td>103 - 120+ kg</td>
-            <td>45 - 47 Esnek Kalıp</td>
           </tr>
         </tbody>
       </table>
@@ -500,17 +590,71 @@
 
   <!-- SABİT WHATSAPP SİPARİŞ BUTONU -->
   <a
-    href="https://wa.me/905425753008?text=Merhaba%20VIP%20Boxer%20Store%2C%20%C3%BCr%C3%BCnler%20hakk%C4%B1nda%20bilgi%20almak%20ve%20sipari%C5%9F%20vermek%20istiyorum."
-    target="_blank"
+    href="whatsapp://send?phone=905425753008&text=Merhaba%20VIP%20Boxer%20Store%2C%20%C3%BCr%C3%BCnler%20hakk%C4%B1nda%20bilgi%20almak%20ve%20sipari%C5%9F%20vermek%20istiyorum."
     class="floating-wp-btn"
     title="WhatsApp Sipariş Hattı: 0542 575 30 08"
   >
     💬 <span>WP Sipariş: 0542 575 30 08</span>
   </a>
 
+  <!-- TAM EKRAN VIP STORY İZLEYİCİ MODALI -->
+  <div id="storyModal" class="modal-backdrop" onclick="if(event.target===this) closeStoryViewer()">
+    <div class="story-viewer-card">
+      <div id="storyProgressRow" class="story-progress-row"></div>
+      <div class="story-top-meta">
+        <div style="display:flex; align-items:center; gap:0.55rem;">
+          <img src="assets/logo.png?v=7" alt="VIP" style="width:32px; height:32px; border-radius:50%; border:1.5px solid var(--gold-light);" />
+          <div>
+            <div id="storyBrandText" style="font-size:0.78rem; font-weight:800; color:#fff;">VIP BOXER STORE</div>
+            <div style="font-size:0.68rem; color:var(--gold-light);">S - M - L - XL - XXL Stokta</div>
+          </div>
+        </div>
+        <button class="modal-close" style="position:static; width:32px; height:32px; font-size:1rem;" onclick="closeStoryViewer()">✕</button>
+      </div>
+
+      <button type="button" class="story-nav-btn story-nav-prev" onclick="stepStory(-1)">‹</button>
+      <button type="button" class="story-nav-btn story-nav-next" onclick="stepStory(1)">›</button>
+
+      <div class="story-media-wrap">
+        <img id="storyMainImg" src="assets/products/ck_baxtir_seti.jpg?v=7" alt="VIP Story" />
+        <div class="story-bottom-overlay">
+          <div id="storyTitleText" style="font-family:'Cinzel',serif; font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.3rem;"></div>
+          <div id="storyPriceText" style="font-size:1.1rem; font-weight:900; color:var(--gold-light); margin-bottom:0.8rem;"></div>
+          <button id="storyActionBtn" type="button" class="btn-gold" style="width:100%; justify-content:center; padding:0.8rem;">
+            🛍️ Ürünü İncele &amp; Beden Seç
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOBİL BUZLU CAM ALT MENÜ (GLASS DOCK) -->
+  <nav class="mobile-glass-dock" aria-label="Mobil Hızlı Menü">
+    <a href="#koleksiyon" onclick="setCategoryFilter('baxtir', document.querySelectorAll('.filter-btn')[1])" class="dock-btn">
+      <span class="dock-ico">🩲</span>
+      <span>Boxer</span>
+    </a>
+    <a href="#koleksiyon" onclick="setCategoryFilter('corap', document.querySelectorAll('.filter-btn')[2])" class="dock-btn">
+      <span class="dock-ico">🧦</span>
+      <span>Çorap</span>
+    </a>
+    <button type="button" onclick="openSizeGuide()" class="dock-btn">
+      <span class="dock-ico">📏</span>
+      <span>Bedenler</span>
+    </button>
+    <button type="button" onclick="openCartDrawer()" class="dock-btn">
+      <span class="dock-ico">🛍️</span>
+      <span>Sepet (<span id="mobileDockCartCount">0</span>)</span>
+    </button>
+    <a href="whatsapp://send?phone=905425753008&text=Merhaba%20VIP%20Boxer%20Store%2C%20sipari%C5%9F%20vermek%20istiyorum." class="dock-btn dock-btn-wp">
+      <span class="dock-ico">💬</span>
+      <span>WP Hattı</span>
+    </a>
+  </nav>
+
   <!-- TOAST BİLDİRİMİ -->
   <div id="vipToast" class="vip-toast"></div>
 
-  <script src="app.js?v=7"></script>
+  <script src="app.js?v=10"></script>
 </body>
 </html>

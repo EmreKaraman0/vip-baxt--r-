@@ -60,7 +60,7 @@ const PRODUCTS = [
     price: 225,
     shortDesc: "Zümrüt yeşili ve altın varaklı özel pencereli koleksiyon kutusunda 6 çift (Siyah & Beyaz kombin) lüks penye pamuk patik çorap.",
     fullDesc: "Girdiğiniz her ortamda fark yaratan LV Özel Kutulu 6'lı VIP Set! Terletmeyen %85 taranmış birinci sınıf penye pamuk dokusu, bileği sıkmayan esnek likralı yapısı ve burun-topuk takviyesiyle gün boyu ultra konfor sunar. Özel pencereli şık kutusuyla 6 çift olarak gönderilir.",
-    highlights: ["6'lı Özel Kutulu", "%85 Taranmış Pamuk", "Ter & Koku Önleyici", "S - XXL Tüm Bedenler"]
+    highlights: ["6'lı Özel Kutulu", "%85 Taranmış Pamuk", "Ter & Koku Önleyici", "Standart Esnek Kalıp"]
   },
   {
     id: "gucci-vip-6li",
@@ -75,7 +75,7 @@ const PRODUCTS = [
     price: 225,
     shortDesc: "İkonik yeşil-kırmızı şerit detaylı gold pencereli kutusunda 6 çift nakış işlemeli ultra yumuşak VIP patik çorap seti.",
     fullDesc: "İtalyan stilini adımlarınıza taşıyan Gucci İkonik 6'lı Kutulu VIP Set! Bilek ve burun kısmındaki yüksek yoğunluklu özel nakış işlemesi yıkamalarda asla bozulmaz. Nefes alan gözenekli pamuk dokusu sayesinde dört mevsim ferah kullanım sağlar.",
-    highlights: ["6'lı Özel Kutulu", "Özel Nakış İşleme", "Dikişsiz Burun Konforu", "S - XXL Tüm Bedenler"]
+    highlights: ["6'lı Özel Kutulu", "Özel Nakış İşleme", "Dikişsiz Burun Konforu", "Standart Esnek Kalıp"]
   },
   {
     id: "ck-vip-6li",
@@ -90,7 +90,7 @@ const PRODUCTS = [
     price: 225,
     shortDesc: "Minimalist lacivert-beyaz-altın pencereli kutusunda 6 çift (Siyah & Beyaz) ekstra yumuşak dokulu günlük & klasik VIP çorap.",
     fullDesc: "Modern ve minimalist şıklığın zirvesi Calvin Klein 6'lı VIP Kutu! Sneaker, loafer ve günlük ayakkabılarla kusursuz uyum sağlayan bilek boy kesimi, kayma yapmayan elastik bandı ve ipeksi pamuk tuşesiyle vazgeçilmeziniz olacak.",
-    highlights: ["6'lı Özel Kutulu", "Kaymaz Bilek Bandı", "Ekstra Yumuşak Tuşe", "S - XXL Tüm Bedenler"]
+    highlights: ["6'lı Özel Kutulu", "Kaymaz Bilek Bandı", "Ekstra Yumuşak Tuşe", "Standart Esnek Kalıp"]
   },
   {
     id: "puma-vip-6li",
@@ -105,7 +105,7 @@ const PRODUCTS = [
     price: 225,
     shortDesc: "Kırmızı-siyah özel tasarım pencereli kutusunda 6 çift ekstra esnek, darbe emici taban destekli spor ve günlük VIP çorap seti.",
     fullDesc: "Yüksek tempolu günler ve spor kombinler için tasarlanan Puma 6'lı VIP Kutu! Ayak kemerini saran dinamik esnek dokusu, nem transferi sağlayan hava kanalları ve dayanıklı topuk dokumasıyla maksimum performans ve şıklığı birleştirir.",
-    highlights: ["6'lı Kutu Avantajı", "Hava Kanallı Doku", "Esnek Kemer Desteği", "S - XXL Tüm Bedenler"]
+    highlights: ["6'lı Kutu Avantajı", "Hava Kanallı Doku", "Esnek Kemer Desteği", "Standart Esnek Kalıp"]
   },
   {
     id: "uspolo-vip-6li",
@@ -120,7 +120,7 @@ const PRODUCTS = [
     price: 225,
     shortDesc: "Asil lacivert-kırmızı-altın plakalı kutusunda 6 çift üç renk şerit detaylı birinci sınıf penye pamuk VIP çorap seti.",
     fullDesc: "Zamansız Amerikan klasiği U.S. Polo Assn. 6'lı VIP Set! İnce işçilikli bilek nakışı, formunu kaybetmeyen likralı penye kumaşı ve şık hediye kutusuyla gardırobunuzun en kaliteli parçalarından biri olmaya aday.",
-    highlights: ["6'lı Özel Kutulu", "Form Koruyan Likra", "Şık Hediye Kutusu", "S - XXL Tam Kalıp"]
+    highlights: ["6'lı Özel Kutulu", "Form Koruyan Likra", "Şık Hediye Kutusu", "Standart Esnek Kalıp"]
   }
 ];
 
@@ -141,6 +141,7 @@ function renderProducts() {
     : PRODUCTS.filter(p => p.category === activeFilter);
 
   grid.innerHTML = list.map(product => {
+    const hasSize = product.category === "baxtir";
     const currentSize = selectedSizes[product.id] || "L";
     const sizeButtonsHtml = SIZES.map(sz => `
       <button
@@ -149,6 +150,29 @@ function renderProducts() {
         onclick="selectProductSize('${product.id}', '${sz}')"
       >${sz}</button>
     `).join("");
+
+    const sizeSectionHtml = hasSize
+      ? `
+        <div class="size-selector-block">
+          <div class="size-label-row">
+            <span>Beden Seçiniz: <strong style="color:var(--gold-light)">${currentSize}</strong></span>
+            <span class="size-stock-ok">● Stokta Hazır</span>
+          </div>
+          <div class="size-options">
+            ${sizeButtonsHtml}
+          </div>
+        </div>
+      `
+      : `
+        <div class="size-selector-block" style="padding:0.65rem 0.85rem;">
+          <div class="size-label-row" style="margin-bottom:0;">
+            <span>✨ Standart Esnek Kalıp</span>
+            <span class="size-stock-ok">● Stokta Hazır</span>
+          </div>
+        </div>
+      `;
+
+    const addBtnLabel = hasSize ? `🛍️ Sepete Ekle (${currentSize})` : `🛍️ Sepete Ekle`;
 
     return `
       <article class="product-card" data-category="${product.category}">
@@ -176,15 +200,7 @@ function renderProducts() {
             ${product.highlights.map(h => `<span class="highlight-pill">✓ ${h}</span>`).join("")}
           </div>
 
-          <div class="size-selector-block">
-            <div class="size-label-row">
-              <span>Beden Seçiniz: <strong style="color:var(--gold-light)">${currentSize}</strong></span>
-              <span class="size-stock-ok">● Stokta Hazır</span>
-            </div>
-            <div class="size-options">
-              ${sizeButtonsHtml}
-            </div>
-          </div>
+          ${sizeSectionHtml}
 
           <div class="product-footer">
             <div class="price-wrap">
@@ -193,7 +209,7 @@ function renderProducts() {
             </div>
             <div style="display:flex; flex-direction:column; gap:0.45rem; flex:1;">
               <button type="button" class="add-cart-btn" onclick="addToCart('${product.id}')">
-                🛍️ Sepete Ekle (${currentSize})
+                ${addBtnLabel}
               </button>
               <button type="button" class="card-wp-btn" onclick="quickBuyWhatsApp('${product.id}')">
                 💬 WP Hızlı Sipariş
@@ -238,15 +254,46 @@ window.switchHeroImage = function(src, titleText, thumbEl) {
 window.openQuickView = function(productId) {
   const product = PRODUCTS.find(p => p.id === productId);
   if (!product) return;
+  const hasSize = product.category === "baxtir";
   const currentSize = selectedSizes[productId] || "L";
   const modal = document.getElementById("quickViewModal");
   modal.dataset.productId = productId;
 
+  const qvSizeHtml = hasSize
+    ? `
+      <div class="size-selector-block">
+        <div class="size-label-row">
+          <span>Beden Seçimi (Tam Kalıp): <strong style="color:var(--gold-light)">${currentSize}</strong></span>
+          <span class="size-stock-ok">✓ S - XXL Tüm Bedenler Mevcut</span>
+        </div>
+        <div class="size-options">
+          ${SIZES.map(sz => `
+            <button
+              type="button"
+              class="size-btn ${currentSize === sz ? "selected" : ""}"
+              onclick="selectProductSize('${product.id}', '${sz}')"
+            >${sz}</button>
+          `).join("")}
+        </div>
+      </div>
+    `
+    : `
+      <div class="size-selector-block">
+        <div class="size-label-row" style="margin-bottom:0;">
+          <span>✨ Standart Esnek Kalıp (Her Ayağa Tam Uyum)</span>
+          <span class="size-stock-ok">✓ Stokta Mevcut</span>
+        </div>
+      </div>
+    `;
+
+  const qvAddBtnText = hasSize ? `🛍️ (${currentSize} Beden) Sepete Ekle` : `🛍️ Hemen Sepete Ekle`;
+
   const container = document.getElementById("quickViewBody");
   container.innerHTML = `
     <div class="quickview-grid">
-      <div class="quickview-img-col">
-        <img src="${product.image}" alt="${product.title}" onerror="this.src='assets/products/lv_corap_seti.jpg'" />
+      <div class="quickview-img-col" id="qvZoomStage">
+        <img id="qvZoomImg" src="${product.image}" alt="${product.title}" onerror="this.src='assets/products/lv_corap_seti.jpg'" />
+        <span class="zoom-hint-pill">🔍 Yakınlaştırmak için görsel üzerinde gezinin</span>
       </div>
       <div class="quickview-info-col">
         <span class="section-eyebrow">${product.brand} • ${product.packInfo}</span>
@@ -258,21 +305,7 @@ window.openQuickView = function(productId) {
           ${product.highlights.map(h => `<span class="highlight-pill">✨ ${h}</span>`).join("")}
         </div>
 
-        <div class="size-selector-block">
-          <div class="size-label-row">
-            <span>Beden Seçimi (Tam Kalıp): <strong style="color:var(--gold-light)">${currentSize}</strong></span>
-            <span class="size-stock-ok">✓ S - XXL Tüm Bedenler Mevcut</span>
-          </div>
-          <div class="size-options">
-            ${SIZES.map(sz => `
-              <button
-                type="button"
-                class="size-btn ${currentSize === sz ? "selected" : ""}"
-                onclick="selectProductSize('${product.id}', '${sz}')"
-              >${sz}</button>
-            `).join("")}
-          </div>
-        </div>
+        ${qvSizeHtml}
 
         <div style="display:flex; flex-direction:column; gap:0.7rem; margin-top:auto; padding-top:0.8rem; border-top:1px solid rgba(255,255,255,0.1);">
           <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem;">
@@ -281,17 +314,18 @@ window.openQuickView = function(productId) {
               <div class="current-price">${product.price} ₺</div>
             </div>
             <button type="button" class="btn-gold" onclick="addToCart('${product.id}'); closeQuickView();">
-              🛍️ (${currentSize} Beden) Sepete Ekle
+              ${qvAddBtnText}
             </button>
           </div>
           <button type="button" class="whatsapp-order-btn" style="margin-bottom:0;" onclick="quickBuyWhatsApp('${product.id}')">
-            💬 WhatsApp ile Hemen Sipariş Ver (0542 575 30 08)
+            💬 WhatsApp Uygulamasında Hemen Sipariş Ver
           </button>
         </div>
       </div>
     </div>
   `;
   modal.classList.add("open");
+  bindLensZoom();
 };
 
 window.closeQuickView = function() {
@@ -310,7 +344,8 @@ window.closeSizeGuide = function() {
 window.addToCart = function(productId) {
   const product = PRODUCTS.find(p => p.id === productId);
   if (!product) return;
-  const size = selectedSizes[productId] || "L";
+  const hasSize = product.category === "baxtir";
+  const size = hasSize ? (selectedSizes[productId] || "L") : null;
   const existing = cart.find(item => item.productId === productId && item.size === size);
 
   if (existing) {
@@ -326,7 +361,7 @@ window.addToCart = function(productId) {
     });
   }
   updateCartUI();
-  showToast(`👑 ${product.title} (${size} Beden) sepete eklendi!`);
+  showToast(size ? `👑 ${product.title} (${size} Beden) sepete eklendi!` : `👑 ${product.title} sepete eklendi!`);
   openCartDrawer();
 };
 
@@ -341,6 +376,8 @@ window.changeCartQty = function(index, delta) {
 function updateCartUI() {
   const totalCount = cart.reduce((acc, item) => acc + item.qty, 0);
   document.getElementById("cartBadgeCount").textContent = totalCount;
+  const dockCountEl = document.getElementById("mobileDockCartCount");
+  if (dockCountEl) dockCountEl.textContent = totalCount;
 
   const listEl = document.getElementById("cartItemsList");
   if (cart.length === 0) {
@@ -348,7 +385,7 @@ function updateCartUI() {
       <div style="text-align:center; padding:3rem 1rem; color:var(--text-muted);">
         <div style="font-size:2.8rem; margin-bottom:0.8rem;">🛍️</div>
         <p style="font-weight:700; color:#fff; margin-bottom:0.4rem;">VIP Sepetiniz Şu An Boş</p>
-        <p style="font-size:0.85rem;">Koleksiyondan S - M - L - XL - XXL beden seçerek hemen ekleyin, 3 set ve üzeri alımda anında %15 VIP indirimi kazanın!</p>
+        <p style="font-size:0.85rem;">Koleksiyondan ürünlerinizi hemen ekleyin, 3 kutu ve üzeri alımda anında %15 VIP indirimi kazanın!</p>
       </div>
     `;
   } else {
@@ -357,7 +394,7 @@ function updateCartUI() {
         <img src="${item.image}" alt="${item.title}" onerror="this.src='assets/products/lv_corap_seti.jpg'" />
         <div class="cart-item-info">
           <div class="cart-item-title">${item.title}</div>
-          <div class="cart-item-meta">Beden: <strong>${item.size}</strong> • Birim: ${item.price} ₺</div>
+          <div class="cart-item-meta">${item.size ? `Beden: <strong>${item.size}</strong> • ` : ""}Birim: ${item.price} ₺</div>
           <div class="qty-controls">
             <button class="qty-btn" onclick="changeCartQty(${idx}, -1)">−</button>
             <span style="font-size:0.85rem; font-weight:700;">${item.qty}</span>
@@ -399,7 +436,13 @@ window.closeCartDrawer = function() {
   document.getElementById("cartDrawerBackdrop").classList.remove("open");
 };
 
-// WhatsApp & Instant Order (Direkt 0542 575 30 08 yönlendirmeli)
+// Direkt WhatsApp Uygulamasını Açan Yardımcı Fonksiyon (Tarayıcı ara sayfasına takılmaz!)
+window.launchWhatsAppApp = function(messageText) {
+  const encoded = encodeURIComponent(messageText);
+  window.location.href = `whatsapp://send?phone=${WHATSAPP_PHONE}&text=${encoded}`;
+};
+
+// WhatsApp & Instant Order (Direkt WhatsApp Uygulamasına 0542 575 30 08 yönlendirmeli)
 window.completeOrderWhatsApp = function() {
   if (cart.length === 0) {
     showToast("Lütfen önce sepetinize en az 1 ürün ekleyin!");
@@ -415,29 +458,31 @@ window.completeOrderWhatsApp = function() {
     `────────────────────`
   ];
   cart.forEach((item, i) => {
-    lines.push(`${i + 1}. ${item.title} | Beden: *${item.size}* | Adet: *${item.qty}* (${item.price * item.qty} ₺)`);
+    const sizePart = item.size ? ` | Beden: *${item.size}*` : "";
+    lines.push(`${i + 1}. ${item.title}${sizePart} | Adet: *${item.qty}* (${item.price * item.qty} ₺)`);
   });
   lines.push(`────────────────────`);
   lines.push(`💰 *Ödenecek Toplam:* ${document.getElementById("cartFinalTotal").textContent}`);
   if (appliedCoupon) lines.push(`🎁 *Aktif Kupon:* ${appliedCoupon}`);
 
-  const msg = encodeURIComponent(lines.join("\n"));
-  window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${msg}`, "_blank");
+  launchWhatsAppApp(lines.join("\n"));
 };
 
 window.quickBuyWhatsApp = function(productId) {
   const product = PRODUCTS.find(p => p.id === productId);
   if (!product) return;
+  const hasSize = product.category === "baxtir";
   const size = selectedSizes[productId] || "L";
   const lines = [
     `👑 *VIP BOXER STORE - HIZLI SİPARİŞ* 👑`,
     `Merhaba, aşağıdaki ürünü sipariş vermek istiyorum:`,
-    `📦 *Ürün:* ${product.title}`,
-    `📏 *Beden:* ${size}`,
-    `💰 *Fiyat:* ${product.price} ₺`
+    `📦 *Ürün:* ${product.title}`
   ];
-  const msg = encodeURIComponent(lines.join("\n"));
-  window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${msg}`, "_blank");
+  if (hasSize) {
+    lines.push(`📏 *Beden:* ${size}`);
+  }
+  lines.push(`💰 *Fiyat:* ${product.price} ₺`);
+  launchWhatsAppApp(lines.join("\n"));
 };
 
 // VIP Wheel / Lucky Coupon Modal
@@ -481,8 +526,209 @@ function initLiveAtmosphere() {
   }, 4500);
 }
 
+// 1. VIP Royal Intro Curtain
+function initRoyalIntro() {
+  const splash = document.getElementById("vipIntroSplash");
+  if (!splash) return;
+  setTimeout(() => {
+    splash.classList.add("hide");
+    setTimeout(() => { splash.style.display = "none"; }, 800);
+  }, 1150);
+}
+
+// 2. Floating 24K Gold Dust Canvas & Cursor Spotlight
+function initGoldDustAndSpotlight() {
+  const spotlight = document.getElementById("cursorSpotlight");
+  if (spotlight && window.matchMedia("(pointer: fine)").matches) {
+    window.addEventListener("mousemove", (e) => {
+      spotlight.style.left = `${e.clientX}px`;
+      spotlight.style.top = `${e.clientY}px`;
+    }, { passive: true });
+  } else if (spotlight) {
+    spotlight.style.display = "none";
+  }
+
+  const canvas = document.getElementById("goldDustCanvas");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  let w = (canvas.width = window.innerWidth);
+  let h = (canvas.height = window.innerHeight);
+
+  window.addEventListener("resize", () => {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  });
+
+  const particleCount = window.innerWidth < 768 ? 28 : 55;
+  const particles = Array.from({ length: particleCount }, () => ({
+    x: Math.random() * w,
+    y: Math.random() * h,
+    r: Math.random() * 1.9 + 0.5,
+    vx: (Math.random() - 0.5) * 0.28,
+    vy: -Math.random() * 0.45 - 0.12,
+    alpha: Math.random() * 0.65 + 0.2
+  }));
+
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    for (const p of particles) {
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.y < -10) { p.y = h + 10; p.x = Math.random() * w; }
+      if (p.x < -10) p.x = w + 10;
+      if (p.x > w + 10) p.x = -10;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(249, 229, 150, ${p.alpha})`;
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+// 3. 3D Perspective Card Tilt
+function bind3DTiltCards() {
+  if (!window.matchMedia("(pointer: fine)").matches) return;
+  const cards = document.querySelectorAll(".product-card, .hero-visual-card");
+  cards.forEach(card => {
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const rotateY = ((x / rect.width) - 0.5) * 8;
+      const rotateX = ((y / rect.height) - 0.5) * -8;
+      card.style.transform = `perspective(900px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px)`;
+    });
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "";
+    });
+  });
+}
+
+// 4. HD Lens Zoom in Quick View
+function bindLensZoom() {
+  const stage = document.getElementById("qvZoomStage");
+  const img = document.getElementById("qvZoomImg");
+  if (!stage || !img) return;
+
+  const moveZoom = (clientX, clientY) => {
+    const rect = stage.getBoundingClientRect();
+    const xPct = Math.max(0, Math.min(100, ((clientX - rect.left) / rect.width) * 100));
+    const yPct = Math.max(0, Math.min(100, ((clientY - rect.top) / rect.height) * 100));
+    stage.classList.add("zooming");
+    img.style.transformOrigin = `${xPct}% ${yPct}%`;
+  };
+
+  stage.addEventListener("mousemove", (e) => moveZoom(e.clientX, e.clientY));
+  stage.addEventListener("mouseleave", () => {
+    stage.classList.remove("zooming");
+    img.style.transformOrigin = "center center";
+  });
+  stage.addEventListener("touchmove", (e) => {
+    if (e.touches[0]) moveZoom(e.touches[0].clientX, e.touches[0].clientY);
+  }, { passive: true });
+  stage.addEventListener("touchend", () => stage.classList.remove("zooming"));
+}
+
+// 5. Instagram-Style VIP Story Viewer
+const STORIES_DATA = [
+  { productId: "ck-baxtir-3lu" },
+  { productId: "tommy-baxtir-3lu" },
+  { productId: "puma-baxtir-3lu" },
+  { productId: "lv-vip-6li" },
+  { productId: "gucci-vip-6li" },
+  { productId: "ck-vip-6li" },
+  { productId: "uspolo-vip-6li" }
+];
+let currentStoryIdx = 0;
+let storyTimer = null;
+let storyProgress = 0;
+
+window.openStoryViewer = function(idx) {
+  currentStoryIdx = idx;
+  document.getElementById("storyModal").classList.add("open");
+  showStorySlide(currentStoryIdx);
+};
+
+window.closeStoryViewer = function() {
+  clearInterval(storyTimer);
+  document.getElementById("storyModal").classList.remove("open");
+};
+
+window.stepStory = function(dir) {
+  const next = currentStoryIdx + dir;
+  if (next < 0) {
+    showStorySlide(0);
+  } else if (next >= STORIES_DATA.length) {
+    closeStoryViewer();
+  } else {
+    currentStoryIdx = next;
+    showStorySlide(currentStoryIdx);
+  }
+};
+
+function showStorySlide(idx) {
+  clearInterval(storyTimer);
+  storyProgress = 0;
+  const entry = STORIES_DATA[idx];
+  const product = PRODUCTS.find(p => p.id === entry.productId) || PRODUCTS[0];
+
+  document.getElementById("storyBrandText").textContent = product.brand;
+  document.getElementById("storyMainImg").src = product.image;
+  document.getElementById("storyTitleText").textContent = product.title;
+  document.getElementById("storyPriceText").textContent = `${product.price} ₺ • ${product.packInfo}`;
+  const actionBtn = document.getElementById("storyActionBtn");
+  actionBtn.onclick = () => {
+    closeStoryViewer();
+    openQuickView(product.id);
+  };
+
+  const progRow = document.getElementById("storyProgressRow");
+  progRow.innerHTML = STORIES_DATA.map((_, i) => `
+    <div class="story-prog-seg">
+      <div class="story-prog-fill" id="storySegFill_${i}" style="width:${i < idx ? 100 : 0}%"></div>
+    </div>
+  `).join("");
+
+  storyTimer = setInterval(() => {
+    storyProgress += 2.5;
+    const activeFill = document.getElementById(`storySegFill_${idx}`);
+    if (activeFill) activeFill.style.width = `${Math.min(100, storyProgress)}%`;
+    if (storyProgress >= 100) {
+      stepStory(1);
+    }
+  }, 100);
+}
+
+// 6. Cinematic Scroll Reveal
+function initScrollReveal() {
+  const targets = document.querySelectorAll(".features-strip, .section-wrap, .baxtir-spotlight, .bundle-section, .review-card, .vip-stories-section");
+  targets.forEach(el => el.classList.add("reveal-item"));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("revealed");
+      }
+    });
+  }, { threshold: 0.1 });
+
+  targets.forEach(el => observer.observe(el));
+}
+
+const _origRenderProducts = renderProducts;
+renderProducts = function() {
+  _origRenderProducts();
+  bind3DTiltCards();
+};
+
 document.addEventListener("DOMContentLoaded", () => {
+  initRoyalIntro();
   renderProducts();
   updateCartUI();
   initLiveAtmosphere();
+  initGoldDustAndSpotlight();
+  initScrollReveal();
 });
