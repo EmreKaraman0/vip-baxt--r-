@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VIP Baxtır Store | Özel Kutulu Lüks Çorap & Baxtır Koleksiyonu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <link rel="stylesheet" href="styles.css?v=5" />
+</head>
+<body>
+
+  <!-- ÜST KAYAN VIP DUYURU BANDI -->
+  <div class="vip-marquee">
+    <div class="marquee-track">
+      <span>👑 VIP BAXTIR STORE'A HOŞ GELDİNİZ</span>
+      <span>🔥 6'LI ÖZEL KUTULU VIP ÇORAP SETLERİ SADECE 225 ₺ • 3'LÜ KUTULU VIP BAXTIR SETLERİ 275 ₺</span>
+      <span>📐 TÜM ÜRÜNLERDE S - M - L - XL - XXL TAM KALIP BEDEN SEÇENEĞİ</span>
+      <span>💬 WHATSAPP HIZLI SİPARİŞ HATTI: 0542 575 30 08</span>
+      <span>👑 VIP BAXTIR STORE'A HOŞ GELDİNİZ</span>
+      <span>🔥 6'LI ÖZEL KUTULU VIP ÇORAP SETLERİ SADECE 225 ₺ • 3'LÜ KUTULU VIP BAXTIR SETLERİ 275 ₺</span>
+      <span>📐 TÜM ÜRÜNLERDE S - M - L - XL - XXL TAM KALIP BEDEN SEÇENEĞİ</span>
+      <span>💬 WHATSAPP HIZLI SİPARİŞ HATTI: 0542 575 30 08</span>
+    </div>
+  </div>
+
+  <!-- HEADER & LOGO -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="#" class="brand-identity">
+        <div class="brand-logo-wrap">
+          <img
+            src="assets/logo.png"
+            alt="VIP Baxtır Store Logo"
+            class="brand-logo-img"
+            onerror="this.style.display='none'; document.getElementById('svgFallbackLogo').style.display='flex';"
+          />
+          <div id="svgFallbackLogo" style="display:none; width:100%; height:100%; background:#08080a; border-radius:12px; align-items:center; justify-content:center;">
+            <svg width="36" height="36" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 22L21 31L32 14L43 31L54 22L49 44H15L10 22Z" stroke="#F9E596" stroke-width="3.5" stroke-linejoin="round" fill="rgba(212,175,55,0.2)"/>
+              <text x="32" y="57" text-anchor="middle" fill="#F9E596" font-family="Cinzel, serif" font-weight="900" font-size="13">VB</text>
+            </svg>
+          </div>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">VIP BAXTIR STORE</span>
+          <span class="brand-subtitle">Luxury Socks &amp; Boxer Boutique</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#koleksiyon">VIP Koleksiyon</a></li>
+        <li><a href="#baxtir-ozel">VIP Baxtır Serisi</a></li>
+        <li><a href="#kombin-firsat">3'lü Kutu Avantajı</a></li>
+        <li><a href="javascript:void(0)" onclick="openSizeGuide()">Beden Tablosu (S-XXL)</a></li>
+        <li><a href="#yorumlar">Müşteri Yorumları</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button type="button" class="wheel-trigger-btn" onclick="openWheelModal()">
+          🎁 <span>VIP İndirim Kazan</span>
+        </button>
+        <button type="button" class="cart-btn" onclick="openCartDrawer()">
+          🛍️ Sepetim <span class="cart-badge" id="cartBadgeCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- SİNEMATİK HERO VİTRİNİ -->
+  <section class="hero-section">
+    <div class="hero-bg-glow"></div>
+    <div class="hero-container">
+      <div class="hero-left">
+        <div class="live-viewer-pill">
+          <span class="pulse-dot"></span>
+          <span>Şu an <strong id="liveViewerCount">31</strong> kişi VIP kutulu setleri inceliyor</span>
+        </div>
+
+        <h1 class="hero-heading">
+          Adımlarınızda ve Konforunuzda <span class="gold-text">Gerçek VIP Kaliteyi</span> Hissedin.
+        </h1>
+
+        <p class="hero-desc">
+          <strong>Vip Baxtır Store</strong> ayrıcalığıyla özel kutularında sunulan <strong>6'lı lüks çorap setleri (225 ₺)</strong> ve <strong>3'lü kutulu penye baxtır koleksiyonu (275 ₺)</strong>. Giren bir daha başka yerden alışveriş yapamıyor!
+        </p>
+
+        <div class="size-showcase-bar">
+          <span class="size-showcase-label">👑 Tam Kalıp Tüm Bedenler:</span>
+          <span class="size-chip-static">S</span>
+          <span class="size-chip-static">M</span>
+          <span class="size-chip-static">L</span>
+          <span class="size-chip-static">XL</span>
+          <span class="size-chip-static">XXL</span>
+        </div>
+
+        <div class="hero-cta-group">
+          <a href="#koleksiyon" class="btn-gold">
+            🔥 Koleksiyonu Keşfet
+          </a>
+          <button type="button" class="btn-outline-gold" onclick="openSizeGuide()">
+            📏 S - XXL Beden Rehberi
+          </button>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-box">
+            <strong>%85+</strong>
+            <span>1. Sınıf Taranmış Pamuk</span>
+          </div>
+          <div class="stat-box">
+            <strong>S - XXL</strong>
+            <span>Her Bedene Kusursuz Uyum</span>
+          </div>
+          <div class="stat-box">
+            <strong>4.9 / 5</strong>
+            <span>VIP Müşteri Memnuniyeti</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-visual-card">
+          <div class="hero-visual-inner">
+            <span class="floating-vip-tag">✨ ÖZEL HEDİYE KUTULU SERİ</span>
+            <img
+              id="heroMainImg"
+              src="assets/products/ck_baxtir_seti.jpg"
+              alt="VIP Kutulu Koleksiyon"
+              class="hero-main-img"
+            />
+            <div class="hero-visual-overlay">
+              <div style="font-size:0.78rem; color:var(--gold-light); font-weight:800; letter-spacing:0.14em; text-transform:uppercase;">
+                VİTRİNDEKİ ÖZEL SETLER (TIKLA &amp; ÖNİZLE)
+              </div>
+              <div id="heroCaptionTitle" style="font-family:'Cinzel',serif; font-size:1.25rem; font-weight:800; color:#fff; margin-top:3px;">
+                Calvin Klein 3'lü Kutulu VIP Baxtır (275 ₺)
+              </div>
+
+              <div class="hero-carousel-thumbs" style="flex-wrap:wrap;">
+                <div class="hero-thumb active" onclick="switchHeroImage('assets/products/ck_baxtir_seti.jpg?v=5', 'Calvin Klein 3\'lü Kutulu VIP Baxtır (275 ₺)', this)">
+                  <img src="assets/products/ck_baxtir_seti.jpg?v=5" alt="CK Baxtır Set" />
+                </div>
+                <div class="hero-thumb" onclick="switchHeroImage('assets/products/tommy_baxtir_seti.jpg?v=5', 'Tommy Hilfiger 3\'lü Kutulu VIP Baxtır (275 ₺)', this)">
+                  <img src="assets/products/tommy_baxtir_seti.jpg?v=5" alt="Tommy Baxtır Set" />
+                </div>
+                <div class="hero-thumb" onclick="switchHeroImage('assets/products/puma_baxtir_seti.jpg?v=5', 'Puma 3\'lü Kutulu VIP Baxtır (275 ₺)', this)">
+                  <img src="assets/products/puma_baxtir_seti.jpg?v=5" alt="Puma Baxtır Set" />
+                </div>
+                <div class="hero-thumb" onclick="switchHeroImage('assets/products/lv_corap_seti.jpg?v=5', 'LV Özel Yeşil Kutulu 6\'lı VIP Çorap (225 ₺)', this)">
+                  <img src="assets/products/lv_corap_seti.jpg?v=5" alt="LV Set" />
+                </div>
+                <div class="hero-thumb" onclick="switchHeroImage('assets/products/gucci_corap_seti.jpg?v=5', 'Gucci İkonik Kutulu 6\'lı VIP Çorap (225 ₺)', this)">
+                  <img src="assets/products/gucci_corap_seti.jpg?v=5" alt="Gucci Set" />
+                </div>
+                <div class="hero-thumb" onclick="switchHeroImage('assets/products/ck_corap_seti.jpg?v=5', 'Calvin Klein 6\'lı Kutulu VIP Çorap (225 ₺)', this)">
+                  <img src="assets/products/ck_corap_seti.jpg?v=5" alt="CK Set" />
+                </div>
+                <div class="hero-thumb" onclick="switchHeroImage('assets/products/puma_corap_seti.jpg?v=5', 'Puma 6\'lı Kutulu VIP Çorap (225 ₺)', this)">
+                  <img src="assets/products/puma_corap_seti.jpg?v=5" alt="Puma Set" />
+                </div>
+                <div class="hero-thumb" onclick="switchHeroImage('assets/products/uspolo_corap_seti.jpg?v=5', 'U.S. Polo Assn. 6\'lı Kutulu VIP Çorap (225 ₺)', this)">
+                  <img src="assets/products/uspolo_corap_seti.jpg?v=5" alt="US Polo Set" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GÜVEN VE KALİTE ÖZELLİKLERİ -->
+  <section class="features-strip">
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🧵</div>
+        <div>
+          <h4>Terletmeyen Penye Dokuma</h4>
+          <p>Nefes alan doğal pamuk lifleri sayesinde koku ve terleme yapmaz, gün boyu ferah tutar.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📐</div>
+        <div>
+          <h4>S - M - L - XL - XXL Tam Beden</h4>
+          <p>Sıkmayan esnek likra teknolojisi ile S bedenden XXL bedene kadar her kalıpta tam konfor.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎁</div>
+        <div>
+          <h4>Özel Pencereli Lüks Kutu</h4>
+          <p>Fotoğraflarda gördüğünüz orijinal şık pencereli kutularında özenle paketlenerek gönderilir.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🚀</div>
+        <div>
+          <h4>Aynı Gün VIP Kargo</h4>
+          <p>Özenli paketleme, şeffaf/güvenli gönderim ve hızlı teslimat ayrıcalığıyla kapınızda.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANA ÜRÜN KOLEKSİYONU -->
+  <section id="koleksiyon" class="section-wrap">
+    <div class="section-header">
+      <span class="section-eyebrow">👑 ÖZEL SEÇKİ VİTRİNİ</span>
+      <h2 class="section-title">VIP Kutulu Çorap &amp; Baxtır Koleksiyonu</h2>
+      <p class="section-subtitle">
+        İstediğiniz modeli seçin, <strong>S - M - L - XL - XXL</strong> bedeninizle hemen sepetinize ekleyin. Ürünün üzerine tıklayarak kutu içeriğini yakından inceleyebilirsiniz!
+      </p>
+    </div>
+
+    <div class="catalog-toolbar">
+      <div class="filter-tabs">
+        <button type="button" class="filter-btn active" onclick="setCategoryFilter('all', this)">
+          ✨ Tüm VIP Ürünler (8)
+        </button>
+        <button type="button" class="filter-btn" onclick="setCategoryFilter('baxtir', this)">
+          🩲 3'lü Kutulu VIP Baxtır Setleri — 275 ₺ (3)
+        </button>
+        <button type="button" class="filter-btn" onclick="setCategoryFilter('corap', this)">
+          🧦 6'lı Kutulu VIP Çorap Setleri — 225 ₺ (5)
+        </button>
+      </div>
+
+      <button type="button" class="size-guide-btn" onclick="openSizeGuide()">
+        📏 Hangi Beden Bana Uygun? (S - XXL Tablo)
+      </button>
+    </div>
+
+    <div id="productsGrid" class="products-grid">
+      <!-- app.js tarafından dinamik doldurulur -->
+    </div>
+  </section>
+
+  <!-- VIP BAXTIR ÖZEL TANITIM ALANI -->
+  <section id="baxtir-ozel" class="baxtir-spotlight">
+    <div class="spotlight-box">
+      <div class="spotlight-content">
+        <span class="section-eyebrow">🔥 VIP BAXTIR STORE İMZA SERİSİ</span>
+        <h3>Gün Boyu Yokmuş Hissi Veren <span style="color:var(--gold-light)">VIP Baxtır</span> Konforu</h3>
+        <p>
+          Sadece çorapta değil, iç giyimde de zirveyi yaşayın! Paçalarda toplanma yapmayan özel kesimi, belde iz bırakmayan yumuşak elastik kemeri ve %95 taranmış süprem pamuk dokusuyla <strong>S, M, L, XL ve XXL</strong> bedenlerin tamamında kusursuz rahatlık.
+        </p>
+
+        <div class="spotlight-perks">
+          <div class="perk-item">✅ S - M - L - XL - XXL Tam Kalıp</div>
+          <div class="perk-item">✅ Toplanma ve Sarkma Yapmaz</div>
+          <div class="perk-item">✅ %95 Nefes Alan Pamuk / Modal</div>
+          <div class="perk-item">✅ Yıkamada Çekmez &amp; Solmaz</div>
+        </div>
+
+        <a href="#koleksiyon" onclick="setCategoryFilter('baxtir', document.querySelectorAll('.filter-btn')[1])" class="btn-gold">
+          👑 VIP Baxtır Modellerini Gör (275 ₺)
+        </a>
+      </div>
+
+      <div class="spotlight-img-wrap">
+        <img
+          src="assets/products/tommy_baxtir_seti.jpg?v=5"
+          alt="VIP Baxtır Koleksiyonu"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- 3'LÜ KOMBİN KAMPANYA BANDI -->
+  <section id="kombin-firsat" class="bundle-section">
+    <div class="bundle-card">
+      <span class="section-eyebrow">💎 ÇOK AL AZ ÖDE VIP FIRSATI</span>
+      <h2 class="section-title">Kendi 3'lü VIP Kombinini Yap, Anında %15 Kazan!</h2>
+      <p class="section-subtitle" style="margin:0 auto;">
+        İster LV + Gucci + CK 6'lı çorap kutularını birleştirin, ister yanına VIP Baxtır seti ekleyin! Sepetinize 3 kutu eklediğiniz anda sistem otomatik olarak <strong>%15 VIP İndirimi + Ücretsiz Kargo</strong> uygular.
+      </p>
+
+      <div class="bundle-steps">
+        <div class="bundle-step">
+          <div class="step-num">1</div>
+          <h4 style="margin-bottom:0.4rem;">Modelini Beğen</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted);">6'lı özel kutulu çorap veya 3'lü baxtır setlerinden dilediğini seç.</p>
+        </div>
+        <div class="bundle-step">
+          <div class="step-num">2</div>
+          <h4 style="margin-bottom:0.4rem;">Bedenini Seç (S - XXL)</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted);">Her kutu için S, M, L, XL veya XXL bedenini ayrı ayrı belirle.</p>
+        </div>
+        <div class="bundle-step">
+          <div class="step-num">3</div>
+          <h4 style="margin-bottom:0.4rem;">%15 İndirimli Sipariş Ver</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted);">3. kutuyu eklediğin an sepette otomatik VIP indirim düşsün!</p>
+        </div>
+      </div>
+
+      <a href="#koleksiyon" class="btn-gold">🛍️ Hemen Kombin Yapmaya Başla</a>
+    </div>
+  </section>
+
+  <!-- MÜŞTERİ YORUMLARI -->
+  <section id="yorumlar" class="section-wrap" style="padding-top:0;">
+    <div class="section-header">
+      <span class="section-eyebrow">⭐ GERÇEK MÜŞTERİ DENEYİMLERİ</span>
+      <h2 class="section-title">Siteye Giren Neden Vazgeçemiyor?</h2>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          "LV ve Gucci 6'lı kutulardan XL beden söyledim. Kutular o kadar şık geldi ki açmaya kıyamadım. Kumaşı yumuşacık, ayakta gram terleme yapmıyor. Kesinlikle tekrar sipariş vereceğim."
+        </p>
+        <div class="review-author">
+          <span>Burak T. — İstanbul</span>
+          <span>✓ Onaylı VIP Alıcı</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          "XXL beden baxtır ve U.S. Polo çorap seti aldım. Normalde kalıplar dar gelir diye çekinirdim ama S'den XXL'a kadar tam kalıp yapmışlar, üzerime tam oturdu. Kalite 10/10!"
+        </p>
+        <div class="review-author">
+          <span>Serkan M. — Ankara</span>
+          <span>✓ Onaylı VIP Alıcı</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          "Eşime hediye olarak Calvin Klein ve Puma kutularından 3'lü kombin yaptım, sepette anında %15 indirim düştü. Kutu kalitesi mağaza vitrininden farksız, bayıldık!"
+        </p>
+        <div class="review-author">
+          <span>Merve K. — İzmir</span>
+          <span>✓ Onaylı VIP Alıcı</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <img src="assets/logo.png" alt="VIP Baxtır Store" style="width:96px; height:96px; border-radius:20px; border:2px solid var(--gold-primary); margin-bottom:0.9rem; box-shadow:0 0 30px rgba(212,175,55,0.3);" />
+      <div style="font-family:'Cinzel',serif; font-size:1.5rem; font-weight:800; color:var(--gold-light); margin-bottom:0.5rem;">
+        VIP BAXTIR STORE
+      </div>
+      <p style="color:var(--text-muted); font-size:0.9rem; max-width:540px; margin:0 auto 0.8rem;">
+        6'lı Özel Kutulu Lüks Çorap (225 ₺) ve 3'lü Kutulu Baxtır (275 ₺) Mağazası • S - M - L - XL - XXL Tüm Beden Seçenekleriyle Hizmetinizde.
+      </p>
+      <p style="margin-bottom:1.4rem;">
+        <a href="https://wa.me/905425753008?text=Merhaba%20VIP%20Baxt%C4%B1r%20Store%2C%20sipari%C5%9F%20vermek%20istiyorum." target="_blank" style="color:#25d366; font-weight:800; text-decoration:none; font-size:1rem;">
+          📞 WhatsApp Sipariş Hattı: 0542 575 30 08
+        </a>
+      </p>
+      <div style="font-size:0.8rem; color:#71717a;">
+        © 2026 Vip Baxtır Store. Tüm Hakları Saklıdır.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ÜRÜN DETAY (QUICK VIEW) MODALI -->
+  <div id="quickViewModal" class="modal-backdrop" onclick="if(event.target===this) closeQuickView()">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeQuickView()">✕</button>
+      <div id="quickViewBody"></div>
+    </div>
+  </div>
+
+  <!-- S - M - L - XL - XXL BEDEN TABLOSU MODALI -->
+  <div id="sizeGuideModal" class="modal-backdrop" onclick="if(event.target===this) closeSizeGuide()">
+    <div class="modal-content" style="max-width:680px; padding:2.2rem;">
+      <button class="modal-close" onclick="closeSizeGuide()">✕</button>
+      <span class="section-eyebrow">📏 TAM KALIP REHBERİ</span>
+      <h3 style="font-family:'Cinzel',serif; font-size:1.6rem; margin-bottom:0.5rem;">VIP Baxtır &amp; Çorap Beden Tablosu</h3>
+      <p style="color:var(--text-muted); font-size:0.9rem;">
+        Tüm ürünlerimiz yüksek esneklik sağlayan likralı birinci sınıf penye pamuktan üretilmiştir. Kendi bedeninizi güvenle seçebilirsiniz.
+      </p>
+
+      <table class="size-table">
+        <thead>
+          <tr>
+            <th>Beden</th>
+            <th>Baxtır Bel Ölçüsü</th>
+            <th>Kilo Aralığı</th>
+            <th>Çorap Uyum Aralığı</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>S</strong></td>
+            <td>72 - 78 cm</td>
+            <td>50 - 64 kg</td>
+            <td>36 - 38 Numara</td>
+          </tr>
+          <tr>
+            <td><strong>M</strong></td>
+            <td>79 - 86 cm</td>
+            <td>65 - 76 kg</td>
+            <td>39 - 41 Numara</td>
+          </tr>
+          <tr>
+            <td><strong>L</strong></td>
+            <td>87 - 94 cm</td>
+            <td>77 - 88 kg</td>
+            <td>41 - 43 Numara</td>
+          </tr>
+          <tr>
+            <td><strong>XL</strong></td>
+            <td>95 - 103 cm</td>
+            <td>89 - 102 kg</td>
+            <td>43 - 45 Numara</td>
+          </tr>
+          <tr>
+            <td><strong>XXL</strong></td>
+            <td>104 - 116 cm</td>
+            <td>103 - 120+ kg</td>
+            <td>45 - 47 Esnek Kalıp</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- VIP ŞANS / KUPON MODALI -->
+  <div id="wheelModal" class="modal-backdrop" onclick="if(event.target===this) closeWheelModal()">
+    <div class="modal-content wheel-box">
+      <button class="modal-close" onclick="closeWheelModal()">✕</button>
+      <div style="font-size:3rem; margin-bottom:0.5rem;">👑</div>
+      <span class="section-eyebrow">VIP MÜŞTERİ ÖZEL HEDİYESİ</span>
+      <h3 style="font-family:'Cinzel',serif; font-size:1.6rem; margin:0.4rem 0 0.8rem;">Hoş Geldin Şansını Dene!</h3>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:1.4rem;">
+        Vip Baxtır Store'a özel anında geçerli ekstra VIP indirim kuponunu aktif etmek için aşağıdaki altın butona tıkla!
+      </p>
+      <button id="spinBtn" type="button" class="btn-gold" style="width:100%; justify-content:center;" onclick="spinVipCoupon()">
+        🎰 VIP İndirimimi Aktif Et
+      </button>
+      <div id="couponResultBox" class="coupon-display">
+        <div style="font-weight:800; color:var(--gold-light); font-size:1.05rem;">🎉 TEBRİKLER! KUPON KODUNUZ: VIP10ALTIN</div>
+        <div style="font-size:0.84rem; color:#e4e4e7; margin-top:4px;">Sepetinize otomatik olarak ekstra <strong>%10 VIP İndirimi</strong> tanımlandı!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CANLI SEPET ÇEKMECESİ -->
+  <div id="cartDrawerBackdrop" class="cart-drawer-backdrop" onclick="if(event.target===this) closeCartDrawer()">
+    <aside class="cart-drawer">
+      <div class="cart-header">
+        <h3 style="font-family:'Cinzel',serif; font-size:1.25rem; color:var(--gold-light);">🛍️ VIP Alışveriş Sepeti</h3>
+        <button class="modal-close" style="position:static;" onclick="closeCartDrawer()">✕</button>
+      </div>
+
+      <div id="cartPromoHint" style="background:rgba(212,175,55,0.12); padding:0.7rem 1.2rem; font-size:0.8rem; color:var(--gold-light); border-bottom:1px solid rgba(212,175,55,0.2);"></div>
+
+      <div id="cartItemsList" class="cart-items-list"></div>
+
+      <div class="cart-footer">
+        <div style="margin-bottom:0.85rem; display:flex; flex-direction:column; gap:0.5rem;">
+          <input
+            id="orderCustomerName"
+            type="text"
+            placeholder="Adınız Soyadınız"
+            style="width:100%; padding:0.68rem 0.9rem; border-radius:8px; border:1px solid rgba(255,255,255,0.15); background:#16161f; color:#fff; font-size:0.88rem;"
+          />
+          <input
+            id="orderCustomerAddress"
+            type="text"
+            placeholder="Teslimat İl / İlçe / Açık Adres"
+            style="width:100%; padding:0.68rem 0.9rem; border-radius:8px; border:1px solid rgba(255,255,255,0.15); background:#16161f; color:#fff; font-size:0.88rem;"
+          />
+        </div>
+
+        <div class="cart-summary-row">
+          <span style="color:var(--text-muted);">Ara Toplam:</span>
+          <span id="cartSubtotal">0 ₺</span>
+        </div>
+        <div class="cart-summary-row" style="color:#4ade80;">
+          <span>VIP İndirim Kazancı:</span>
+          <span id="cartDiscount">0 ₺</span>
+        </div>
+        <div class="cart-total-row">
+          <span>Ödenecek Tutar:</span>
+          <span id="cartFinalTotal">0 ₺</span>
+        </div>
+
+        <button type="button" class="whatsapp-order-btn" onclick="completeOrderWhatsApp()">
+          💬 WhatsApp ile Sipariş Oluştur (0542 575 30 08)
+        </button>
+      </div>
+    </aside>
+  </div>
+
+  <!-- SABİT WHATSAPP SİPARİŞ BUTONU -->
+  <a
+    href="https://wa.me/905425753008?text=Merhaba%20VIP%20Baxt%C4%B1r%20Store%2C%20%C3%BCr%C3%BCnler%20hakk%C4%B1nda%20bilgi%20almak%20ve%20sipari%C5%9F%20vermek%20istiyorum."
+    target="_blank"
+    class="floating-wp-btn"
+    title="WhatsApp Sipariş Hattı: 0542 575 30 08"
+  >
+    💬 <span>WP Sipariş: 0542 575 30 08</span>
+  </a>
+
+  <!-- TOAST BİLDİRİMİ -->
+  <div id="vipToast" class="vip-toast"></div>
+
+  <script src="app.js?v=5"></script>
+</body>
+</html>
